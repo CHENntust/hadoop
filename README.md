@@ -223,18 +223,11 @@ sudo gedit /home/使用者名稱/hadoop/etc/hadoop/core-site.xml
 #將hdfs://localhost:9000改為hdfs://master:9000
 ``` 
 
-*    編輯HDFS的存取位置
-``` 
-sudo gedit /home/使用者名稱/hadoop/etc/hadoop/core-site.xml
-
-#將hdfs://localhost:9000改為hdfs://master:9000
-``` 
-
 *    編輯YARN組態
 ``` 
 sudo gedit /home/使用者名稱/hadoop/etc/hadoop/yarn-site.xml
 
-#於〈configuration〉…〈/configuration〉間輸入以下內容：
+#新增下內容：
    <property>
       <name>yarn.resourcemanager.resource-tracker.address</name>
       <value>master:8025</value>
@@ -274,8 +267,15 @@ sudo gedit /home/使用者名稱/hadoop/etc/hadoop/hdfs-site.xml
    </property>
    <property>
       <name>dfs.datanode.data.dir</name>
-      <value>file:/home/hduser/hadoop/hadoop_data/hdfs/datanode</value>
+      <value>file:/home/使用者名稱/hadoop/hadoop_data/hdfs/datanode</value>
    </property>
 #設定Block備份數目
 #設定slave data的儲存目錄
+``` 
+
+*   設定主機的角色
+``` 
+sudo gedit /home/使用者名稱/hadoop/etc/hadoop/workers
+
+#輸入slave
 ``` 
