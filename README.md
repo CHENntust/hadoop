@@ -252,13 +252,30 @@ sudo gedit /home/使用者名稱/hadoop/etc/hadoop/yarn-site.xml
 #ResourceManager與客戶端的連結埠為8050
 ``` 
 
-*    編輯YARN組態
+*   重新設定系統監控的模板
 ``` 
 sudo gedit /home/使用者名稱/hadoop/etc/hadoop/mapred-site.xml
 
-#於〈configuration〉…〈/configuration〉間輸入以下內容：
+#修改以下內容：
    <property>
       <name>mapred.job.tracker</name>
       <value>master:54311</value>
    </property>
+``` 
+
+*   重新設定系統監控的模板
+``` 
+sudo gedit /home/使用者名稱/hadoop/etc/hadoop/hdfs-site.xml
+
+#修改以下內容：
+   <property>
+      <name>dfs.replication</name>
+      <value>3</value>
+   </property>
+   <property>
+      <name>dfs.datanode.data.dir</name>
+      <value>file:/home/hduser/hadoop/hadoop_data/hdfs/datanode</value>
+   </property>
+#設定Block備份數目
+#設定slave data的儲存目錄
 ``` 
