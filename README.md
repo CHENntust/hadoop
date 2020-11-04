@@ -1,4 +1,4 @@
-# Hadoop - Establish NameNode and DataNode.md
+# Hadoop - Establish NameNode and DataNode
 
 ## HDFS分散式檔案系統
 
