@@ -266,10 +266,11 @@ sudo gedit /home/使用者名稱/hadoop/etc/hadoop/hdfs-site.xml
 
 *   設定主機的角色
 ``` 
+#slave主機執行下命令並輸入slave
 sudo gedit /home/使用者名稱/hadoop/etc/hadoop/workers
 
-#slave主機輸入slave
-#master主機輸入master
+#master主機執行下命令並輸入master
+sudo gedit /home/使用者名稱/hadoop/etc/hadoop/masters
 ``` 
 
 ### Connect the master node to slave node
