@@ -12,4 +12,8 @@
 
 <img src="https://github.com/CHENntust/hadoop/blob/main/img/HDFS.png"/>
 
-使用者以HDFS下儲存檔案的命令後，系統會將檔案切割為多個Block，
+★  儲存檔案的block清單，稱之為metadata
+
+★  DataNode：負責儲存實體檔案的block。
+
+使用者以HDFS下儲存檔案的命令後，系統會將檔案切割為多個Block(A、B、C)，每個區塊是64MB，每個Block預設會複製三份(可再Hadoop組態中設定)，當區塊損毀時，NameNode會自動尋找其它DataNode上的副本來回復資料。
