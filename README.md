@@ -356,3 +356,36 @@ sudo gedit /home/使用者名稱/hadoop/etc/hadoop/workers
 
 #輸入master
 ``` 
+### Connect the master node to slave node
+
+``` 
+ssh slave
+
+#After you connect to slave node, remove the original hdfs file
+sudo rm -rf /home/使用者名稱/hadoop/hadoop_data/hdfs
+
+＃Make the directory for datanode on slave node
+mkdir -p /home/使用者名稱/hadoop/hadoop_data/hdfs/datanode
+
+#Authorize the user to use hadoop
+sudo chown -R 使用者名稱:使用者名稱 /home/使用者名稱/hadoop
+
+#get back to master server
+exit 
+
+sudo rm -rf /home/使用者名稱/hadoop/hadoop_data/hdfs
+mkdir -p /home/使用者名稱/hadoop/hadoop_data/hdfs/namenode
+sudo chown -R 使用者名稱:使用者名稱 /home/使用者名稱/hadoop
+
+hdfs namenode -format
+``` 
+
+### Test
+``` 
+start-all.sh
+jps
+ssh slave
+jps
+exit
+stop-all.sh
+``` 
