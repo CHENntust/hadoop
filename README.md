@@ -12,7 +12,7 @@
 
 <img src="https://github.com/CHENntust/hadoop/blob/main/img/HDFS.png"/>
 
-★  儲存檔案的block清單，稱之為metadata
+★  NameNode：儲存檔案的block清單，稱之為metadata
 
 ★  DataNode：負責儲存實體檔案的block。
 
