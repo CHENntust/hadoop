@@ -274,25 +274,23 @@ sudo gedit /home/使用者名稱/hadoop/etc/hadoop/workers
 
 ### Connect the master node to slave node
 
+*   於master以ssh登入slave，建立HDFS datanode儲存路徑並獲取存取權限(重複多次)
 ``` 
 ssh slave
-
-#After you connect to slave node, remove the original hdfs file
 sudo rm -rf /home/使用者名稱/hadoop/hadoop_data/hdfs
-
-＃Make the directory for datanode on slave node
 mkdir -p /home/使用者名稱/hadoop/hadoop_data/hdfs/datanode
-
-#Authorize the user to use hadoop
 sudo chown -R 使用者名稱:使用者名稱 /home/使用者名稱/hadoop
-
-#get back to master server
 exit 
+``` 
 
+*   於master建立建立HDFS namenode儲存路徑並獲取存取權限
+``` 
 sudo rm -rf /home/使用者名稱/hadoop/hadoop_data/hdfs
 mkdir -p /home/使用者名稱/hadoop/hadoop_data/hdfs/namenode
 sudo chown -R 使用者名稱:使用者名稱 /home/使用者名稱/hadoop
+``` 
 
+*   初始化HDFS系統
 hdfs namenode -format
 ``` 
 
