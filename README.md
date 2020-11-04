@@ -45,9 +45,7 @@ df = spark.createDataFrame(data,schema)
 pandas_df = df.toPandas()
 ```
 ## 安裝步驟
-*    安裝JDK
-    1. 由於hadoop是使用JAVA開發，因此需要先安裝JDK。
-  
+*    由於hadoop是使用JAVA開發，因此需要先安裝JDK。
 ```
 #安裝
 sudo apt install openjdk-8-jdk
@@ -59,12 +57,51 @@ java -version
 update-alternatives --display java
 ```
     
-    2. 由於hadoop是使用JAVA開發，因此需要先安裝JDK。
-    
-    
 *    設定SSH無密碼登入
+```
+#安裝相依套件
+sudo apt install gedit
+sudo apt install net-tools
+sudo apt-get install rsync
+sudo apt-get install ssh
+
+#生成授權金鑰(設定直接空白Enter)
+ssh-keygen -t rsa -P ""
+
+#將授權金鑰放置至授權檔案中
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+```
+
 *    下載hadoop
+
+https://hadoop.apache.org/releases.html (3.1.4 version is selected and click binary yo download)
+
+```
+#解壓縮至hadoop資料夾
+tar -zxvf hadoop-3.1.4.tar.gz
+sudo mv hadoop-3.1.4 ~/hadoop
+```
+
 *    設定環境變數
+
+```
+sudo gedit ~/.bashrc
+```
+    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+    export HADOOP_HOME=/home/使用者名稱/hadoop
+    export PATH=$PATH:$HADOOP_HOME/bin
+    export PATH=$PATH:$HADOOP_HOME/sbin
+    export HADOOP_MAPRED_HOME=$HADOOP_HOME
+    export HADOOP_COMMON_HOME=$HADOOP_HOME
+    export HADOOP_HDFS_HOME=$HADOOP_HOME
+    export YARN_HOME=$HADOOP_HOME
+    export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+    export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+    export JAVA_LIBRARY_PATH=$HADOOP_HOME/lib/native:$JAVA_LIBRARY_PATH
+
+```
+sudo gedit ~/.bashrc
+```
 *    組態設定
 *    建立HDFS目錄
 *    啟動Hadoop
