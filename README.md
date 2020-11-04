@@ -152,7 +152,7 @@ sudo gedit ~/hadoop/etc/hadoop/mapred-site.xml
        </property>  
 ```  
 
-5. 設定HDFS：
+5. 設定HDFS系統檔：
 ```
 sudo gedit ~/hadoop/etc/hadoop/hdfs-site.xml
 
@@ -169,6 +169,9 @@ sudo gedit ~/hadoop/etc/hadoop/hdfs-site.xml
       <name>dfs.datanode.data.dir</name>
       <value>file:/home/使用者名稱/hadoop/hadoop_data/hdfs/datanode</value>
      </property>
+#設定Block的備份數目為３
+#namenode的儲存路徑
+#datanode的儲存路徑
 ```   
      
 *    建立HDFS目錄
@@ -195,17 +198,14 @@ NameNode HDFS Web``` localhost:9870```
 
 ## 多個節點的設定
 
-### Slave
-
 *    修改主機名稱
 ``` 
 sudo gedit /etc/hostname
 
-#輸入以下內容：
-slave
+#輸入主機名稱Ex.master ,slave1 ,slave2...
 ``` 
 
-*    編輯host配置
+*    設定hadoop硬體配置
 ``` 
 sudo gedit /etc/hosts
 
@@ -227,7 +227,7 @@ sudo gedit /home/使用者名稱/hadoop/etc/hadoop/core-site.xml
 ``` 
 sudo gedit /home/使用者名稱/hadoop/etc/hadoop/yarn-site.xml
 
-#新增下內容：
+#於〈configuration〉…〈/configuration〉新增以下內容：
    <property>
       <name>yarn.resourcemanager.resource-tracker.address</name>
       <value>master:8025</value>
@@ -249,7 +249,7 @@ sudo gedit /home/使用者名稱/hadoop/etc/hadoop/yarn-site.xml
 ``` 
 sudo gedit /home/使用者名稱/hadoop/etc/hadoop/mapred-site.xml
 
-#修改以下內容：
+#於〈configuration〉…〈/configuration〉新增以下內容：
    <property>
       <name>mapred.job.tracker</name>
       <value>master:54311</value>
@@ -260,102 +260,18 @@ sudo gedit /home/使用者名稱/hadoop/etc/hadoop/mapred-site.xml
 ``` 
 sudo gedit /home/使用者名稱/hadoop/etc/hadoop/hdfs-site.xml
 
-#修改以下內容：
-   <property>
-      <name>dfs.replication</name>
-      <value>3</value>
-   </property>
-   <property>
-      <name>dfs.datanode.data.dir</name>
-      <value>file:/home/使用者名稱/hadoop/hadoop_data/hdfs/datanode</value>
-   </property>
-#設定Block備份數目
-#設定slave data的儲存目錄
+#slave主機移除Namenode的部分
+#master主機移除Datanode的部分
 ``` 
 
 *   設定主機的角色
 ``` 
 sudo gedit /home/使用者名稱/hadoop/etc/hadoop/workers
 
-#輸入slave
+#slave主機輸入slave
+#master主機輸入master
 ``` 
 
-### Master
-
-*    修改主機名稱
-``` 
-sudo gedit /etc/hostname
-
-#輸入以下內容：
-slave
-``` 
-
-*    編輯host配置
-``` 
-sudo gedit /etc/hosts
-
-#輸入以下內容(主機IP+主機名稱)：
-主機ip master
-主機ip slave1
-主機ip slave2
-......
-``` 
-
-*    編輯YARN組態
-``` 
-sudo gedit /home/使用者名稱/hadoop/etc/hadoop/yarn-site.xml
-
-#新增下內容：
-   <property>
-      <name>yarn.resourcemanager.resource-tracker.address</name>
-      <value>master:8025</value>
-   </property>
-   <property>
-      <name>yarn.resourcemanager.scheduler.address</name>
-      <value>master:8030</value>
-   </property>
-    <property>
-      <name>yarn.resourcemanager.address</name>
-      <value>master:8050</value>
-   </property>
-#ResourceManager與NodeManager的連結埠為8025
-#ResourceManager與ApplicationMaster的連結埠為8030
-#ResourceManager與客戶端的連結埠為8050
-``` 
-
-*   重新設定系統監控的模板
-``` 
-sudo gedit /home/使用者名稱/hadoop/etc/hadoop/mapred-site.xml
-
-#修改以下內容：
-   <property>
-      <name>mapred.job.tracker</name>
-      <value>master:54311</value>
-   </property>
-``` 
-
-*   重新設定系統監控的模板
-``` 
-sudo gedit /home/使用者名稱/hadoop/etc/hadoop/hdfs-site.xml
-
-#Drop the datanode part and leave the namenode part 
-   <property>
-      <name>dfs.replication</name>
-      <value>3</value>
-   </property>
-   <property>
-      <name>dfs.namenode.name.dir</name>
-      <value>file:/home/使用者名稱/hadoop/hadoop_data/hdfs/namenode</value>
-   </property>
-#設定Block備份數目
-#設定data的儲存目錄
-``` 
-*   設定主機的角色
-``` 
-sudo gedit /home/使用者名稱/hadoop/etc/hadoop/workers
-
-#輸入master
-``` 
 ### Connect the master node to slave node
 
 ``` 
