@@ -9,3 +9,5 @@
 *    cluster叢集架構擴充方便。
 
 *    分散式計算。(移動運算筆移動資料成本更低)
+
+<img src="https://github.com/CHENntust/hadoop/blob/main/img/HDFS.png"/>
