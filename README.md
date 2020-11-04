@@ -44,3 +44,12 @@ schema = StructType([StructField('id' ,LongType() ,True ) ,
 df = spark.createDataFrame(data,schema)
 pandas_df = df.toPandas()
 ```
+## 安裝步驟
+*    安裝JDK
+*    設定SSH無密碼登入
+*    下載hadoop
+*    設定環境變數
+*    組態設定
+*    建立HDFS目錄
+*    啟動Hadoop
+*    開啟Web管理介面
