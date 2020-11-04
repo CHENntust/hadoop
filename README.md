@@ -209,13 +209,56 @@ slave
 ``` 
 sudo gedit /etc/hosts
 
-#輸入以下內容：
+#輸入以下內容(主機IP+主機名稱)：
 主機ip master
 主機ip slave1
 主機ip slave2
 ......
 ``` 
 
+*    編輯HDFS的存取位置
+``` 
+sudo gedit /home/使用者名稱/hadoop/etc/hadoop/core-site.xml
 
+#將hdfs://localhost:9000改為hdfs://master:9000
+``` 
 
+*    編輯HDFS的存取位置
+``` 
+sudo gedit /home/使用者名稱/hadoop/etc/hadoop/core-site.xml
 
+#將hdfs://localhost:9000改為hdfs://master:9000
+``` 
+
+*    編輯YARN組態
+``` 
+sudo gedit /home/使用者名稱/hadoop/etc/hadoop/yarn-site.xml
+
+#於〈configuration〉…〈/configuration〉間輸入以下內容：
+   <property>
+      <name>yarn.resourcemanager.resource-tracker.address</name>
+      <value>master:8025</value>
+   </property>
+   <property>
+      <name>yarn.resourcemanager.scheduler.address</name>
+      <value>master:8030</value>
+   </property>
+    <property>
+      <name>yarn.resourcemanager.address</name>
+      <value>master:8050</value>
+   </property>
+#ResourceManager與NodeManager的連結埠為8025
+#ResourceManager與ApplicationMaster的連結埠為8030
+#ResourceManager與客戶端的連結埠為8050
+``` 
+
+*    編輯YARN組態
+``` 
+sudo gedit /home/使用者名稱/hadoop/etc/hadoop/mapred-site.xml
+
+#於〈configuration〉…〈/configuration〉間輸入以下內容：
+   <property>
+      <name>mapred.job.tracker</name>
+      <value>master:54311</value>
+   </property>
+``` 
