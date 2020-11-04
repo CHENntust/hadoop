@@ -32,3 +32,15 @@
 
 3. DataNode的Node Manager會負責執行分配下來的工作，並向Resource Manager回報結果
 
+## Spark2.0
+
+Spark在這個版本的主要功能包括**提升執行效率**、**整合SQL和Hive的Query功能**、**機器學習是以DataFrame為基礎**有效的整合python操作
+```
+import pandas as pd
+data = [(100,'lily',18) (101,'lucy',19)]
+schema = StructType([StructField('id' ,LongType() ,True ) ,
+                      StructField('name' ,StringType() ,True ) ,
+                      StructField('age' ,LongType() ,True )])
+df = spark.createDataFrame(data,schema)
+pandas_df = df.toPandas()
+```
