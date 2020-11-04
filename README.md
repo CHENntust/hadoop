@@ -11,3 +11,5 @@
 *    分散式計算。(移動運算筆移動資料成本更低)
 
 <img src="https://github.com/CHENntust/hadoop/blob/main/img/HDFS.png"/>
+
+使用者以HDFS下儲存檔案的命令後，系統會將檔案切割為多個Block，
