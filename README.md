@@ -26,9 +26,9 @@
 
 <img src="https://github.com/CHENntust/hadoop/blob/main/img/MapReduce.png"/>
 
-       1. Client會向Resource Manager要求執行運算
-       
-       2. NameNode的Resource Manager會統籌管理運算需求
-      
-       3. DataNode的Node Manager會負責執行分配下來的工作，並向Resource Manager回報結果
+1. Client會向Resource Manager要求執行運算
+
+2. NameNode的Resource Manager會統籌管理運算需求
+
+3. DataNode的Node Manager會負責執行分配下來的工作，並向Resource Manager回報結果
 
