@@ -291,6 +291,7 @@ sudo chown -R 使用者名稱:使用者名稱 /home/使用者名稱/hadoop
 ``` 
 
 *   初始化HDFS系統
+``` 
 hdfs namenode -format
 ``` 
 
@@ -298,8 +299,14 @@ hdfs namenode -format
 ``` 
 start-all.sh
 jps
-ssh slave
+
+ssh slave1
 jps
 exit
+ssh slave2
+jps
+exit
+...
+
 stop-all.sh
 ``` 
