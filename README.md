@@ -88,6 +88,7 @@ sudo mv hadoop-3.1.4 ~/hadoop
 sudo gedit ~/.bashrc
 ```
 將以下內容輸入環境變數：
+
     export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64  #設定JDK的安裝路徑
     export HADOOP_HOME=/home/使用者名稱/hadoop  #設定HADOOP的安裝路徑
     export PATH=$PATH:$HADOOP_HOME/bin   #設定執行檔路徑
@@ -99,6 +100,7 @@ sudo gedit ~/.bashrc
     export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
     export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
     export JAVA_LIBRARY_PATH=$HADOOP_HOME/lib/native:$JAVA_LIBRARY_PATH
+    
 重啟bash
 ```
 source ~/.bashrc
