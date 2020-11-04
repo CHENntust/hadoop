@@ -1,6 +1,6 @@
-# Hadoop HDFS
+# Hadoop - Establish NameNode and DataNode.md
 
-## install manual
+## HDFS
 
 *    硬體故障式常態而非異常。
 
