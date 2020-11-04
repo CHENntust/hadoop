@@ -180,4 +180,15 @@ hdfs namenode -format   #格式化namenode
 ``` 
 
 *    啟動Hadoop
+*    建立HDFS目錄
+``` 
+start-all.sh   #啟動HDFS
+jps  #查看執行中的行程
+stop-all.sh   #關閉HDFS
+``` 
+
 *    開啟Web管理介面
+
+Hadoop ResourceManager ``` Weblocalhost:8088``` 
+
+NameNode HDFS Web``` localhost:9870``` 
