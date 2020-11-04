@@ -47,20 +47,15 @@ pandas_df = df.toPandas()
 ## 安裝步驟
 *    安裝JDK
     1. 由於hadoop是使用JAVA開發，因此需要先安裝JDK。
-    
+   
     ```
+    #安裝
     sudo apt install openjdk-8-jdk
-    ```
- 
-    2. 確認JAVA版本。
     
-    ```
+    #確認JAVA版本。
     java -version
-    ```
-
-    3. 確認JAVA的安裝路徑。
     
-    ```
+    #確認JAVA的安裝路徑。
     update-alternatives --display java
     ```
     
