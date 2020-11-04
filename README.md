@@ -172,5 +172,12 @@ sudo gedit ~/hadoop/etc/hadoop/hdfs-site.xml
 ```   
      
 *    建立HDFS目錄
+``` 
+sudo mkdir -p /home/使用者名稱/hadoop/hadoop_data/hdfs/namenode    #建立namenode資料儲存目錄
+sudo mkdir -p /home/使用者名稱/hadoop/hadoop_data/hdfs/datanode    #建立datanode資料儲存目錄
+sudo chown 使用者名稱:使用者名稱 -R /home/使用者名稱/hadoop    #更改hadoop目錄的擁有者
+hdfs namenode -format   #格式化namenode
+``` 
+
 *    啟動Hadoop
 *    開啟Web管理介面
