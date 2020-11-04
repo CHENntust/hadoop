@@ -192,3 +192,11 @@ stop-all.sh   #關閉HDFS
 Hadoop ResourceManager ``` Weblocalhost:8088``` 
 
 NameNode HDFS Web``` localhost:9870``` 
+
+## 多個節點的設定
+
+### Slave
+
+
+
+
