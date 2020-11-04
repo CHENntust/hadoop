@@ -197,6 +197,25 @@ NameNode HDFS Web``` localhost:9870```
 
 ### Slave
 
+*    修改主機名稱
+``` 
+sudo gedit /etc/hostname
+
+#輸入以下內容：
+slave
+``` 
+
+*    編輯host配置
+``` 
+sudo gedit /etc/hosts
+
+#輸入以下內容：
+主機ip master
+主機ip slave1
+主機ip slave2
+......
+``` 
+
 
 
 
