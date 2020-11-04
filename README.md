@@ -106,31 +106,31 @@ sudo gedit ~/.bashrc
 source ~/.bashrc
 ```
 *    組態設定
-設定hadoop組態1(JAVA)：
+
+1. 設定hadoop組態1(JAVA)：
 ```
 sudo gedit ~/hadoop/etc/hadoop/hadoop-env.sh
-```
-輸入以下內容：
 
+#輸入以下內容：
     export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+```
     
-設定hadoop組態2(HDFS名稱)：
+2. 設定hadoop組態2(HDFS名稱)：
 ```
 sudo gedit ~/hadoop/etc/hadoop/core-site.xml
-```
-於<configuration>…</configuration>間輸入以下內容：
 
+#於〈configuration〉…〈/configuration〉間輸入以下內容：
      <property>
      <name>fs.default.name</name>
      <value>hdfs://localhost:9000</value>
      </property>
-    
-設定MapReduce組態(YARN)：
+```    
+
+3. 設定MapReduce組態(YARN)：
 ```
 sudo gedit ~/hadoop/etc/hadoop/yarn-site.xml
-```
-於<configuration>…</configuration>間輸入以下內容：
 
+#於〈configuration〉…〈/configuration〉間輸入以下內容：
      <property>
       <name>yarn.nodemanager.aux-services</name>
       <value>mapreduce_shuffle</value>
@@ -139,24 +139,24 @@ sudo gedit ~/hadoop/etc/hadoop/yarn-site.xml
       <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
       <value>org.apache.hadoop.mapred.ShuffleHandler</value>
      </property>
-     
-設定系統監控的模板：
+```
+
+4. 設定系統監控的模板：
 ```
 sudo gedit ~/hadoop/etc/hadoop/mapred-site.xml
-```
-於<configuration>…</configuration>間輸入以下內容：
 
+#於〈configuration〉…〈/configuration〉間輸入以下內容：
        <property>
         <name>mapreduce.framework.name</name>
         <value>yarn</value>
        </property>  
-   
- 設定HDFS：
+```  
+
+5. 設定HDFS：
 ```
 sudo gedit ~/hadoop/etc/hadoop/hdfs-site.xml
-```
-於<configuration>…</configuration>間輸入以下內容：
 
+於〈configuration〉…〈/configuration〉間輸入以下內容：
      <property>
       <name>dfs.replication</name>
       <value>3</value>
@@ -169,7 +169,7 @@ sudo gedit ~/hadoop/etc/hadoop/hdfs-site.xml
       <name>dfs.datanode.data.dir</name>
       <value>file:/home/使用者名稱/hadoop/hadoop_data/hdfs/datanode</value>
      </property>
-     
+```   
      
 *    建立HDFS目錄
 *    啟動Hadoop
